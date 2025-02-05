@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Logos | Agent Experience">
+	<main>
+		<div class="header">
+			<h1>Logos</h1>
+			<a href="/" class="home-link">Back to Home</a>
+		</div>
+		<div class="resources-grid">
+			<div class="resource-card">
+				<h2>Brand Assets</h2>
+				<div class="resource-list">
+					<a href="/logo.png" download class="download-link">
+						<span>Company Logo</span>
+						<span class="file-info">(PNG, 200x60px)</span>
+					</a>
+					<a href="https://placehold.co/1200x630" download class="download-link">
+						<span>Social Media Banner</span>
+						<span class="file-info">(PNG, 1200x630px)</span>
+					</a>
+					<a href="https://placehold.co/400x400" download class="download-link">
+						<span>Profile Picture</span>
+						<span class="file-info">(PNG, 400x400px)</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		max-width: 1200px;
+	}
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+		padding: 2rem 0;
+	}
+	.home-link {
+		padding: 0.5rem 1rem;
+		background: rgb(var(--primary));
+		border-radius: 4px;
+		text-decoration: none;
+		color: rgb(var(--text-light));
+		transition: background-color 0.2s;
+	}
+	.home-link:hover {
+		background: rgb(var(--primary-light));
+	}
+	.resources-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	.resource-card {
+		background: white;
+		border-radius: 8px;
+		padding: 2rem;
+		border: 1px solid rgba(var(--primary), 0.2);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+	.resource-card h2 {
+		color: rgb(var(--primary));
+		margin-bottom: 1.5rem;
+		font-size: 1.5rem;
+	}
+	.resource-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.download-link {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		background: white;
+		border-radius: 4px;
+		text-decoration: none;
+		color: rgb(var(--text-dark));
+		transition: transform 0.2s, box-shadow 0.2s;
+		border: 1px solid rgba(var(--primary), 0.1);
+	}
+	.download-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 2px 4px rgba(var(--primary), 0.2);
+		border-color: rgb(var(--secondary));
+	}
+	.file-info {
+		color: rgb(var(--primary));
+		font-size: 0.9rem;
+	}
+</style>

@@ -1,0 +1,120 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { category: 'articles' } },
+    { params: { category: 'concepts' } },
+    { params: { category: 'research' } },
+    { params: { category: 'guides' } },
+    { params: { category: 'all' } },
+  ];
+}
+
+const { category } = Astro.params;
+const allPosts = await Promise.all([
+  getCollection('articles'),
+  getCollection('research'),
+  getCollection('guides'),
+  getCollection('concepts'),
+]).then(collections => collections.flat());
+
+const posts = category === 'all' 
+  ? allPosts 
+  : await getCollection(category);
+
+// Sort posts by category_order first, then by date
+posts.sort((a, b) => {
+  // First compare by category_order
+  const orderDiff = (a.data.category_order || 0) - (b.data.category_order || 0);
+  if (orderDiff !== 0) return orderDiff;
+  
+  // If category_order is the same, sort by date (newest first)
+  return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+});
+---
+
+<Layout title={`${category.charAt(0).toUpperCase() + category.slice(1)} | Agent Experience`}>
+  <main class="mx-auto p-4 max-w-6xl">
+    <h1 class="text-4xl font-bold text-text-dark mb-8 px-2 md:px-0">{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {posts.map(post => (
+        <a 
+          href={post.data.external_link || `/${category}/${post.slug}`}
+          target={post.data.external_link ? "_blank" : undefined}
+          rel={post.data.external_link ? "noopener noreferrer" : undefined}
+          class="flex flex-col p-4 md:p-6 bg-white rounded-lg border border-primary/20 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/30 transition-all h-full"
+        >
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              {post.data.category_icon && (
+                <img 
+                  src={post.data.category_icon} 
+                  alt="" 
+                  class="w-[50px] h-[50px] object-contain"
+                  width="50"
+                  height="50"
+                />
+              )}
+              <h2 class="text-2xl font-semibold text-text-dark">{post.data.title}</h2>
+            </div>
+            <p class="text-gray-600 mb-4">{post.data.description}</p>
+          </div>
+            {(post.data.category === 'articles' || post.data.category === 'research') && (
+              <div class="flex justify-between text-sm text-gray-500 mt-4">
+              <div class="font-medium">By <span class="mr-2">{post.data.author}</span> Published {post.data.pubDate.toISOString().split('T')[0]}</div>
+              </div>
+            )}
+        </a>
+      ))}
+    </div>
+  </main>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .home-link {
+    padding: 0.5rem 1rem;
+    background: rgb(var(--primary));
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgb(var(--text-light));
+    transition: background-color 0.2s;
+  }
+  .home-link:hover {
+    background: rgb(var(--primary-light));
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+  .post-card {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid rgba(var(--primary), 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary), 0.3);
+  }
+  .post-meta {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgb(var(--primary));
+  }
+</style>

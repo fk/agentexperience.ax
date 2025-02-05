@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const collections = await Promise.all([
+    getCollection('articles'),
+    getCollection('research'),
+    getCollection('guides'),
+    getCollection('concepts'),
+  ]);
+  const posts = collections.flat();
+  return posts.map(post => ({
+    params: { 
+      category: post.collection,
+      slug: post.slug 
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get all posts from the same category
+const categoryPosts = await getCollection(post.collection);
+
+// Sort posts by category_order first, then by date
+categoryPosts.sort((a, b) => {
+  // First compare by category_order
+  const orderDiff = (a.data.category_order || 0) - (b.data.category_order || 0);
+  if (orderDiff !== 0) return orderDiff;
+  
+  // If category_order is the same, sort by date (newest first)
+  return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+});
+---
+
+<Layout title={post.data.title}> 
+  <main class="mx-auto mt-10 p-4 max-w-6xl">
+    <div class="flex gap-8">
+      <div class="hidden md:block w-64 shrink-0">
+        <div class="sticky top-4">
+          <h2 class="text-lg font-bold text-gray-500 mb-4 mt-4">{post.data.category.charAt(0).toUpperCase() + post.data.category.slice(1)}</h2>
+          <ul class="space-y-3">
+            {categoryPosts.map(categoryPost => (
+              <li>
+                <a 
+                  href={`/${post.data.category}/${categoryPost.slug}`}
+                  class:list={[
+                    'block text-base leading-snug',
+                    post.slug === categoryPost.slug 
+                      ? 'text-primary font-medium' 
+                      : 'text-text-dark hover:text-primary transition-colors'
+                  ]}
+                >
+                  {categoryPost.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="md:hidden mb-8">
+          <select 
+            class="w-full p-2 mx-2 border border-primary/20 rounded-lg bg-white text-text-dark"
+            onchange="window.location.href=this.value"
+          >
+            {categoryPosts.map(categoryPost => (
+              <option 
+                value={`/${post.data.category}/${categoryPost.slug}`}
+                selected={post.slug === categoryPost.slug}
+              >
+                {categoryPost.data.title}
+              </option>
+            ))}
+          </select>
+        </div>
+        <h1 class="text-4xl font-bold text-text-dark mb-8 px-4 md:px-0">{post.data.title}</h1>
+        <article class="bg-white p-4 md:p-8 rounded-lg shadow-sm overflow-hidden">
+          {(post.data.category === 'articles' || post.data.category === 'research') && (
+            <div class="flex flex-col text-gray-600 justify-between mb-8 pb-4 border-b border-primary/20">
+            <div class="font-medium">By <span class="mr-2">{post.data.author}</span> Published {post.data.pubDate.toISOString().split('T')[0]}</div>
+            </div>
+          )}
+          <div class="prose prose-lg max-w-none overflow-x-hidden
+            prose-headings:text-text-dark prose-headings:font-semibold
+            prose-p:text-gray-700 prose-p:leading-relaxed
+            prose-a:text-secondary prose-a:underline hover:prose-a:text-secondary-light
+            prose-strong:text-text-dark prose-strong:font-semibold
+            prose-ul:list-disc prose-ul:pl-4
+            prose-ol:list-decimal prose-ol:pl-4
+            prose-li:text-gray-700 prose-li:my-1
+            prose-blockquote:border-l-4 prose-blockquote:border-primary/30 prose-blockquote:pl-4 prose-blockquote:italic
+            prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:rounded prose-code:before:hidden prose-code:after:hidden
+            prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg
+            prose-img:rounded-lg prose-img:shadow-md
+            prose-img:max-w-full prose-img:h-auto prose-img:object-contain">
+            <Content />
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+</Layout>

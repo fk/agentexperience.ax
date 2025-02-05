@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Resources | Agent Experience">
+	<main>
+		<div class="header">
+			<h1>Resources</h1>
+			<a href="/" class="home-link">Back to Home</a>
+		</div>
+		<div class="resources-grid">
+			<div class="resource-card">
+				<h2>Brand Assets</h2>
+				<div class="resource-list">
+					<a href="/logo.png" download class="download-link">
+						<span>Company Logo</span>
+						<span class="file-info">(PNG, 200x60px)</span>
+					</a>
+					<a href="https://placehold.co/1200x630" download class="download-link">
+						<span>Social Media Banner</span>
+						<span class="file-info">(PNG, 1200x630px)</span>
+					</a>
+					<a href="https://placehold.co/400x400" download class="download-link">
+						<span>Profile Picture</span>
+						<span class="file-info">(PNG, 400x400px)</span>
+					</a>
+				</div>
+			</div>
+			<div class="resource-card">
+				<h2>Presentation Templates</h2>
+				<div class="resource-list">
+					<a href="https://placehold.co/1920x1080" download class="download-link">
+						<span>Presentation Background</span>
+						<span class="file-info">(PNG, 1920x1080px)</span>
+					</a>
+					<a href="https://placehold.co/800x600" download class="download-link">
+						<span>Slide Template</span>
+						<span class="file-info">(PNG, 800x600px)</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		max-width: 1200px;
+	}
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+		padding: 2rem 0;
+	}
+	.home-link {
+		padding: 0.5rem 1rem;
+		background: #f5f5f5;
+		border-radius: 4px;
+		text-decoration: none;
+		color: #333;
+		transition: background-color 0.2s;
+	}
+	.home-link:hover {
+		background-color: #eaeaea;
+	}
+	.resources-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	.resource-card {
+		background: #f8f9fa;
+		border-radius: 8px;
+		padding: 2rem;
+	}
+	.resource-card h2 {
+		color: #333;
+		margin-bottom: 1.5rem;
+		font-size: 1.5rem;
+	}
+	.resource-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.download-link {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		background: white;
+		border-radius: 4px;
+		text-decoration: none;
+		color: #333;
+		transition: transform 0.2s, background-color 0.2s;
+	}
+	.download-link:hover {
+		transform: translateY(-2px);
+		background-color: #f0f0f0;
+	}
+	.file-info {
+		color: #666;
+		font-size: 0.9rem;
+	}
+</style>
