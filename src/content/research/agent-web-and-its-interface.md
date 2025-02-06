@@ -50,13 +50,17 @@ Becoming or remaining preferred requires a good AX. We’ve all had the experien
 
 Delivering purpose built way for agents to consume optimal content through more appropriate delivery mechanisms, websites can reduce the costs it takes to support agents consuming content on their sites.
 
-## Why can’t the “human” web support the “agent” web?
+## Why can’t the “human” view support the “agent” view?
 
-It’s not impossible but it seems, at best, impractical to do this. It’s already really complex, bloated, and nuanced to ship modern web in a way that’s accessible, useful, and engaging to humans.
+It’s not impossible but it seems, at best, impractical to do this. Websites are already really complex, bloated, and nuanced to ship modern web in a way that’s accessible, useful, and engaging to humans. Trust me, I wish that were not the reality and I am thankful for modern frameworks like Astro that push for a better state.
 
 In an ideal world, websites are simple to parse, semantic, and with clear action intent. The reality is very far from this. Even with content only websites, they are more often than not plagued with massive amounts of ads, imagery, tracking, delayed interactions, etc. that the HTML on the page hides important things from agents or puts unimportant things in the way which make LLMs and agents stumble. Sites that are considered “web apps” are at least an order of magnitude worse on most measures by their nature.
 
-That said, the concept of an agent web is not a specific solution, it’s a claim that we will have purpose built views of the web that will encompass many mechanisms and a range of support that will be delivered to solve for this view. The human view of the web will remain vital and will stay as the fallback opportunity for any site that’s not supporting an agent specific view of the web.
+There's also the assumption being made in this that the content and structuring needed by humans is the same as what agents will benefit from. I believe that the status quo of making due with what we have has convinced us that this is sufficient for agents but we have evidence (to be published in future reports) that shows how this is not the case.
+
+Given the reality of what we have today and the needs of agents, forcing different code paths and exceptions into a shared presentation layer for these two personas is asking for significant complexity and fragile systems. Not impossible, but I'm not seeing a graceful path where these two persona target's content should mesh into one layer alone.
+
+That said, the concept of an agent web is not a specific solution, it’s a claim that we will have purpose built views of the web that will encompass many mechanisms and a range of support that will be delivered to solve for this view. The human view of the web will remain vital and will stay as the fallback opportunity for any site that’s not supporting an agent specific view of the web. The need for us to prioritize improved views of the webs for humans will not go away and this will absolutely benefit the agent view of the web.
 
 An important note, some agent systems have built features to embed or use browsers directly to give them access to working with web services of allowing agents to interact with a website through an automated browser. I understand the attempt and it’s an obvious initial step - anyone building integrations over the years knows they wish they could go about it in this way which has been possible for a long time. However, I believe this is the wrong way. These features incur the same issues and costs with added latency and likelihood of failure. Businesses measuring the impact/usability/accessibility of their site with customers will have all new ways for analytics to be skewed, bounce rates will be wilder than ever, and so on. These closed systems will be proxying non-deterministic flows and the website owners will be left to figure out how to help support customers that run into issues within these delegated experiences. Frankly, if this were a good idea, we would have used this mechanism as a solution for building APIs instead of building APIs to work with other sites.
 
