@@ -22,6 +22,11 @@ const { title, description, social_card_url } = Astro.props;
 
 		<meta name="og:title" content={title} />
 		<meta name="og:description" content={description || "Agent Experience (AX)"} />
+		<meta property="og:type" content="website">
+		<meta property="twitter:domain" content="agentexperience.ax">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description || "Agent Experience (AX)"}>
+		<meta name="twitter:image" content="https://agentexperience.ax/articles/ax-standard-social.png">
 
 		{social_card_url && (
 			<>
