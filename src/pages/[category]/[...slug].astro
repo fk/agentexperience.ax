@@ -1,19 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import SocialShare from "../../components/SocialShare.astro";
 
 export async function getStaticPaths() {
   const collections = await Promise.all([
-    getCollection('articles'),
-    getCollection('research'),
-    getCollection('guides'),
-    getCollection('concepts'),
+    getCollection("articles"),
+    getCollection("research"),
+    getCollection("guides"),
+    getCollection("concepts"),
   ]);
   const posts = collections.flat();
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: {
       category: post.collection,
-      slug: post.slug
+      slug: post.slug,
     },
     props: { post },
   }));
@@ -40,28 +41,35 @@ categoryPosts.sort((a, b) => {
   title={post.data.title}
   social_card_url={post.data.social_card_url}
   description={post.data.description}
-  >
+>
   <main class="mx-auto mt-2 p-4 max-w-6xl">
     <div class="flex gap-8">
       <div class="hidden md:block w-48 shrink-0">
         <div class="sticky top-4">
-          <h2 class="text-xl font-bold text-gray-600 mb-6 mt-4 -ml-4 p-4 py-2">{post.data.category.charAt(0).toUpperCase() + post.data.category.slice(1)}</h2>
+          <h2 class="text-xl font-bold text-gray-600 mb-6 mt-4 -ml-4 p-4 py-2">
+            {
+              post.data.category.charAt(0).toUpperCase() +
+                post.data.category.slice(1)
+            }
+          </h2>
           <ul class="space-y-3">
-            {categoryPosts.map(categoryPost => (
-              <li>
-                <a
-                  href={`/${post.data.category}/${categoryPost.slug}`}
-                  class:list={[
-                    'block text-base text-text-dark leading-snug',
-                    post.slug === categoryPost.slug
-                      ? 'font-bold underline-primary'
-                      : 'hover:text-primary transition-colors'
-                  ]}
-                >
-                  {categoryPost.data.sidebar_label || categoryPost.data.title}
-                </a>
-              </li>
-            ))}
+            {
+              categoryPosts.map((categoryPost) => (
+                <li>
+                  <a
+                    href={`/${post.data.category}/${categoryPost.slug}`}
+                    class:list={[
+                      "block text-base text-text-dark leading-snug",
+                      post.slug === categoryPost.slug
+                        ? "font-bold underline-primary"
+                        : "hover:text-primary transition-colors",
+                    ]}
+                  >
+                    {categoryPost.data.sidebar_label || categoryPost.data.title}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
@@ -71,24 +79,37 @@ categoryPosts.sort((a, b) => {
             class="w-full p-2 mx-2 border border-primary/20 rounded-lg bg-white text-text-dark"
             onchange="window.location.href=this.value"
           >
-            {categoryPosts.map(categoryPost => (
-              <option
-                value={`/${post.data.category}/${categoryPost.slug}`}
-                selected={post.slug === categoryPost.slug}
-              >
-                {categoryPost.data.sidebar_label || categoryPost.data.title}
-              </option>
-            ))}
+            {
+              categoryPosts.map((categoryPost) => (
+                <option
+                  value={`/${post.data.category}/${categoryPost.slug}`}
+                  selected={post.slug === categoryPost.slug}
+                >
+                  {categoryPost.data.sidebar_label || categoryPost.data.title}
+                </option>
+              ))
+            }
           </select>
         </div>
-        <h1 class="text-4xl font-bold text-text-dark mb-8 mt-4 px-4 md:px-0">{post.data.title}</h1>
-        <article class="bg-white p-4 md:p-8 rounded-lg shadow-sm overflow-hidden">
-          {(post.data.category === 'articles' || post.data.category === 'research') && (
-            <div class="flex flex-col text-gray-600 justify-between mb-8 pb-4 border-b border-primary/20">
-            <div class="font-medium">By <span class="mr-2">{post.data.author}</span> Published {post.data.pubDate.toISOString().split('T')[0]}</div>
-            </div>
-          )}
-          <div class="prose prose-lg max-w-none overflow-x-hidden
+        <h1 class="text-4xl font-bold text-text-dark mb-8 mt-4 px-4 md:px-0">
+          {post.data.title}
+        </h1>
+        <article
+          class="bg-white p-4 md:p-8 rounded-lg shadow-sm overflow-hidden"
+        >
+          {
+            (post.data.category === "articles" ||
+              post.data.category === "research") && (
+              <div class="flex flex-col text-gray-600 justify-between mb-8 pb-4 border-b border-primary/20">
+                <div class="font-medium">
+                  By <span class="mr-2">{post.data.author}</span> Published{" "}
+                  {post.data.pubDate.toISOString().split("T")[0]}
+                </div>
+              </div>
+            )
+          }
+          <div
+            class="prose prose-lg max-w-none overflow-x-hidden
             prose-headings:text-text-dark prose-headings:font-semibold
             prose-p:text-gray-700 prose-p:leading-relaxed
             prose-a:text-secondary prose-a:underline hover:prose-a:text-secondary-light
@@ -99,9 +120,14 @@ categoryPosts.sort((a, b) => {
             prose-blockquote:border-l-4 prose-blockquote:border-primary/30 prose-blockquote:pl-4 prose-blockquote:italic
             prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:rounded prose-code:before:hidden prose-code:after:hidden
             prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg
-            prose-img:max-w-full prose-img:h-auto prose-img:object-contain">
+            prose-img:max-w-full prose-img:h-auto prose-img:object-contain"
+          >
             <Content />
           </div>
+          <SocialShare
+            title={post.data.title}
+            url={`https://agentexperience.ax/${post.data.category}/${post.slug}`}
+          />
         </article>
       </div>
     </div>
