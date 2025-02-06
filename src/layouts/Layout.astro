@@ -20,6 +20,9 @@ const { title, description, social_card_url } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description || "Agent Experience (AX)"} />
+
 		{social_card_url && (
 			<>
 				<!-- Open Graph / Facebook -->
