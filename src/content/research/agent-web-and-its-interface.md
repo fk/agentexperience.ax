@@ -6,6 +6,7 @@ author: "Sean Roberts"
 category: "research"
 category_order: 1
 sidebar_label: "Agent Web and Its Interface"
+social_card_url: "/articles/ax-standard-social.png"
 ---
 
 As we look at the opportunities that great [agent experiences (AX)](https://biilmann.blog/articles/introducing-ax/) can offer agents, end users, and services, we need to confront some realities about how the status quo needs to change.
@@ -57,11 +58,11 @@ In an ideal world, websites are simple to parse, semantic, and with clear action
 
 That said, the concept of an agent web is not a specific solution, it’s a claim that we will have purpose built views of the web that will encompass many mechanisms and a range of support that will be delivered to solve for this view. The human view of the web will remain vital and will stay as the fallback opportunity for any site that’s not supporting an agent specific view of the web.
 
-An important note, some agent systems have built features to embed or use browsers directly to give them access to working with web services of allowing agents to interact with a website through an automated browser. I understand the attempt and it’s an obvious initial step - anyone building integrations over the years knows they wish they could go about it in this way which has been possible for a long time. However, I believe this is the wrong way. These features incur the same issues and costs with added latency and likelihood of failure. Businesses measuring the impact/usability/accessibility of their site with customers will have all new ways for analytics to be skewed, bounce rates will be wilder than ever, and so on. These closed systems will be proxying non-deterministic flows and the website owners will be left to figure out how to help support customers that run into issues within these delegated experiences. Frankly, if this were a good idea, we would have used this mechanism as a solution for building APIs instead of building APIs to work with other sites. 
+An important note, some agent systems have built features to embed or use browsers directly to give them access to working with web services of allowing agents to interact with a website through an automated browser. I understand the attempt and it’s an obvious initial step - anyone building integrations over the years knows they wish they could go about it in this way which has been possible for a long time. However, I believe this is the wrong way. These features incur the same issues and costs with added latency and likelihood of failure. Businesses measuring the impact/usability/accessibility of their site with customers will have all new ways for analytics to be skewed, bounce rates will be wilder than ever, and so on. These closed systems will be proxying non-deterministic flows and the website owners will be left to figure out how to help support customers that run into issues within these delegated experiences. Frankly, if this were a good idea, we would have used this mechanism as a solution for building APIs instead of building APIs to work with other sites.
 
 ## Aren’t APIs the “agent web“?
 
-Yes and no. APIs represent the mechanisms for systems to talk to one another. So in the sense that agents are systems speaking to other systems (websites), they will be using APIs along with other layers. The agent web is a conceptual view that will emerge as we develop new an creative ways to provide better AX on the web. With that, we’d have to have full expectations that traditional APIs will certainly come up in the methodologies of surfacing an agent view of the web. 
+Yes and no. APIs represent the mechanisms for systems to talk to one another. So in the sense that agents are systems speaking to other systems (websites), they will be using APIs along with other layers. The agent web is a conceptual view that will emerge as we develop new an creative ways to provide better AX on the web. With that, we’d have to have full expectations that traditional APIs will certainly come up in the methodologies of surfacing an agent view of the web.
 
 However, with natural language processing (NLP) and LLMs, we can now satisfy queries from agents with natural language and unstructured content allowing us to reimagine what we think of as working with APIs and APIs themselves. It’s unlikely that APIs alone will provide sufficient context to agent systems to respond flexibly to the demands of the new wave of agents consuming this content. So while APIs are used to directly interact and query systems, the agent view of the web will likely serve as a superset of APIs a site has today, abstractions to established APIs, and so forth.
 
@@ -86,7 +87,7 @@ In addition to the ability to negotiate on how to deliver the optimal content, t
 
 Caching is largely a well understood and solved problem within the browser based mode of development (no, it’s not perfect). However, with the new wave of agents consuming this new view of the web, it will do the agent, the website owners, and everyone in between a great service to leverage proper handling and tracking of resources for the purposes of caching. Without doing so, we run into the problem of out of date information or constantly bombarding websites with redundant requests.
 
-Tried and true methodologies such as ETags and Cache-Control headers are the bare minimum that should be supported in these cases to ensure these systems request only the content needed and can validate they still have the latest information without burdening the website. 
+Tried and true methodologies such as ETags and Cache-Control headers are the bare minimum that should be supported in these cases to ensure these systems request only the content needed and can validate they still have the latest information without burdening the website.
 
 ### Natural language-based APIs
 
@@ -100,9 +101,9 @@ The web has long been challenged by the on-demand nature of serving content and 
 
 # New problems to solve
 
-By having a separate view of the web, we introduce a few new challenges. 
+By having a separate view of the web, we introduce a few new challenges.
 
-An initial key challenge is agent content consistency trust. That is, how can the agent trust that they are being given the content that matches the content of the human consumed site (minus the parts that aren’t needed). To many agents, they might not care but most will. To solve this, we can establish a means to cheaply verify this with the authority in ways that do not incur negative impacts on the site or provider. 
+An initial key challenge is agent content consistency trust. That is, how can the agent trust that they are being given the content that matches the content of the human consumed site (minus the parts that aren’t needed). To many agents, they might not care but most will. To solve this, we can establish a means to cheaply verify this with the authority in ways that do not incur negative impacts on the site or provider.
 
 Authentication and authorization techniques will require more improvements with the now more common pattern of allowing agents to act on behalf of users but only within the constraints allowed. These problems aren’t particularly new but the options to solve them are non-trivial for most websites. We will have to simplify the ability to adopt better auth practices and avoid the dreadfully easy but dangerous practice of collecting end user passwords. If we’re enabling a world where countless of providers will build agents to take these actions on behalf of users, not solving this problem is asking for the collapse of trust in the agent ecosystem.
 
@@ -122,9 +123,9 @@ At some point there will be a few companies that invest enough into solving the 
 
 I have strong conviction that this agent view of the web will surface to allow a new medium to expand where agents and the web can work together to feel like magic to customers and all parties can benefit. With the rise and proliferation of agents across every business category, tools, etc. we have to work to make sure both work well together. This an ambitious vision that we as an industry can go after.
 
-There’s already amazing work happening in this space, for example [Model Context Protocol](https://modelcontextprotocol.io/), [Open Context](https://openctx.org/), LLM.txt, and others. These are pushing the boundaries of what we could be possible. With AX being a new but well established focus, like that of UX and DX, we will continue to see industry experts come together to solve AX in web architecture that resets the expectations for agents and how the web can meet end customers where they are. 
+There’s already amazing work happening in this space, for example [Model Context Protocol](https://modelcontextprotocol.io/), [Open Context](https://openctx.org/), LLM.txt, and others. These are pushing the boundaries of what we could be possible. With AX being a new but well established focus, like that of UX and DX, we will continue to see industry experts come together to solve AX in web architecture that resets the expectations for agents and how the web can meet end customers where they are.
 
-Let’s get to work. 
+Let’s get to work.
 
 ---
 

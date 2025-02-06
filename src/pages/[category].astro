@@ -20,8 +20,8 @@ const allPosts = await Promise.all([
   getCollection('concepts'),
 ]).then(collections => collections.flat());
 
-const posts = category === 'all' 
-  ? allPosts 
+const posts = category === 'all'
+  ? allPosts
   : await getCollection(category);
 
 // Sort posts by category_order first, then by date
@@ -29,18 +29,21 @@ posts.sort((a, b) => {
   // First compare by category_order
   const orderDiff = (a.data.category_order || 0) - (b.data.category_order || 0);
   if (orderDiff !== 0) return orderDiff;
-  
+
   // If category_order is the same, sort by date (newest first)
   return b.data.pubDate.getTime() - a.data.pubDate.getTime();
 });
 ---
 
-<Layout title={`${category.charAt(0).toUpperCase() + category.slice(1)} | Agent Experience`}>
+<Layout
+  title={`${category.charAt(0).toUpperCase() + category.slice(1)} | Agent Experience`}
+  description={`Agent Experience posts related to ${category.charAt(0).toUpperCase() + category.slice(1)}.`}
+  >
   <main class="mx-auto mt-2 p-4 max-w-6xl">
     <h1 class="text-4xl font-bold text-text-dark mb-8 px-2 md:px-0">{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {posts.map(post => (
-        <a 
+        <a
           href={post.data.external_link || `/${category}/${post.slug}`}
           target={post.data.external_link ? "_blank" : undefined}
           rel={post.data.external_link ? "noopener noreferrer" : undefined}
@@ -49,9 +52,9 @@ posts.sort((a, b) => {
           <div class="flex-1">
             <div class="flex items-center gap-3 mb-2">
               {post.data.category_icon && (
-                <img 
-                  src={post.data.category_icon} 
-                  alt="" 
+                <img
+                  src={post.data.category_icon}
+                  alt=""
                   class="w-[50px] h-[50px] object-contain"
                   width="50"
                   height="50"

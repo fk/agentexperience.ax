@@ -11,9 +11,9 @@ export async function getStaticPaths() {
   ]);
   const posts = collections.flat();
   return posts.map(post => ({
-    params: { 
+    params: {
       category: post.collection,
-      slug: post.slug 
+      slug: post.slug
     },
     props: { post },
   }));
@@ -30,13 +30,17 @@ categoryPosts.sort((a, b) => {
   // First compare by category_order
   const orderDiff = (a.data.category_order || 0) - (b.data.category_order || 0);
   if (orderDiff !== 0) return orderDiff;
-  
+
   // If category_order is the same, sort by date (newest first)
   return b.data.pubDate.getTime() - a.data.pubDate.getTime();
 });
 ---
 
-<Layout title={post.data.title}> 
+<Layout
+  title={post.data.title}
+  social_card_url={post.data.social_card_url}
+  description={post.data.description}
+  >
   <main class="mx-auto mt-2 p-4 max-w-6xl">
     <div class="flex gap-8">
       <div class="hidden md:block w-48 shrink-0">
@@ -45,12 +49,12 @@ categoryPosts.sort((a, b) => {
           <ul class="space-y-3">
             {categoryPosts.map(categoryPost => (
               <li>
-                <a 
+                <a
                   href={`/${post.data.category}/${categoryPost.slug}`}
                   class:list={[
                     'block text-base text-text-dark leading-snug',
-                    post.slug === categoryPost.slug 
-                      ? 'font-bold underline-primary' 
+                    post.slug === categoryPost.slug
+                      ? 'font-bold underline-primary'
                       : 'hover:text-primary transition-colors'
                   ]}
                 >
@@ -63,12 +67,12 @@ categoryPosts.sort((a, b) => {
       </div>
       <div class="flex-1 min-w-0">
         <div class="md:hidden mb-8">
-          <select 
+          <select
             class="w-full p-2 mx-2 border border-primary/20 rounded-lg bg-white text-text-dark"
             onchange="window.location.href=this.value"
           >
             {categoryPosts.map(categoryPost => (
-              <option 
+              <option
                 value={`/${post.data.category}/${categoryPost.slug}`}
                 selected={post.slug === categoryPost.slug}
               >

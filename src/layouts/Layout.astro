@@ -1,23 +1,35 @@
 ---
-import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	social_card_url?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, social_card_url } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description || "Agent Experience (AX)"} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		{social_card_url && (
+			<>
+				<!-- Open Graph / Facebook -->
+				<meta property="og:image" content={social_card_url} />
+
+				<!-- Twitter -->
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:image" content={social_card_url} />
+			</>
+		)}
 	</head>
 	<body class="min-h-screen flex flex-col bg-gray-50">
 		<Header />
