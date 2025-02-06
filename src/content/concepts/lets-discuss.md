@@ -13,7 +13,7 @@ The need of AX is crystal clear but the methods of how we get there are still bl
 
 ### Contribute to the open discussions
 
-We host the discussions on [Github](https://github.com/agentexperience/agentexperience.ax/discussions). If there's an important matter that we're not covering in the concepts and practices, start the conversation.
+We host the discussions on [Github](https://github.com/orgs/agentexperience/discussions). If there's an important matter that we're not covering in the concepts and practices, start the conversation.
 
 ### Industry articles and research
 
