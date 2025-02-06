@@ -31,7 +31,7 @@ const { title, description, social_card_url } = Astro.props;
 		{social_card_url && (
 			<>
 				<!-- Open Graph / Facebook -->
-				<meta property="og:image" content={social_card_url} />
+				<meta property="og:image" content={`https://agentexperience.ax${social_card_url}`} />
 
 				<!-- Twitter -->
 				<meta name="twitter:card" content="summary_large_image" />
