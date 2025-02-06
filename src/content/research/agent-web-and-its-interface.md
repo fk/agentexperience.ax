@@ -5,6 +5,7 @@ pubDate: 2025-02-05
 author: "Sean Roberts"
 category: "research"
 category_order: 1
+sidebar_label: "Agent Web and Its Interface"
 ---
 
 As we look at the opportunities that great [agent experiences (AX)](https://biilmann.blog/articles/introducing-ax/) can offer agents, end users, and services, we need to confront some realities about how the status quo needs to change.
@@ -111,7 +112,7 @@ Delegation of brand expression and voice. If there’s a medium that sits betwee
 
 And so on… the list of improvements to make sites and agents work well together is not a short one.
 
-# What if this doesn’t happen?
+## What if this doesn’t happen?
 
 The web and agents will continue to be at odds with one another. Websites will lump agents into the same category like they are pesky bots not allowing the website to serve their target audience. Other ways of solving AX will likely emerge but will be to the benefit of the agent providers and less for the website builders and owners. Fragmentation of support will continue the detriment of the ecosystem of agents and access to sites.
 

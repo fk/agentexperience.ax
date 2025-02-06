@@ -36,7 +36,7 @@ posts.sort((a, b) => {
 ---
 
 <Layout title={`${category.charAt(0).toUpperCase() + category.slice(1)} | Agent Experience`}>
-  <main class="mx-auto p-4 max-w-6xl">
+  <main class="mx-auto mt-2 p-4 max-w-6xl">
     <h1 class="text-4xl font-bold text-text-dark mb-8 px-2 md:px-0">{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {posts.map(post => (

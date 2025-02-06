@@ -11,6 +11,7 @@ const navItems = [
   { href: '/concepts/getting-started', label: 'Concepts' },
   { href: '/articles', label: 'Articles' },
   { href: '/research', label: 'Research' },
+  { href: 'https://github.com/agentexperience/agentexperience.ax/discussions', label: 'Get involved!', external: true },
 ];
 ---
 
@@ -30,8 +31,9 @@ const navItems = [
       {navItems.map(item => (
         <a
           href={item.href}
+          target={item.external ? "_blank" : ""}
           class:list={[
-            'text-text-dark hover:text-primary-dark transition-colors px-1 py-2 min-w-[80px] md:min-w-[100px] text-center text-sm md:text-base',
+            'text-text-dark hover:text-primary-dark transition-colors px-1 py-2 min-w-[80px] md:min-w-[100px] text-center text-sm md:text-base whitespace-nowrap',
             { 'text-primary font-medium': currentPath.startsWith(item.href) }
           ]}
         >
