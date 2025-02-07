@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
@@ -14,10 +15,16 @@ export default {
       },
      fontFamily: {
        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-     },
+       grotesk: ['"Space Grotesk Variable"', 'monospace'],
+      },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function ({ addBase, theme }) {
+      addBase({
+        'h1, h2, h3, h4, h5, h6': { fontFamily: theme('fontFamily.grotesk')},
+      });
+    },
   ],
 }

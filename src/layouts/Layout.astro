@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import '@fontsource-variable/space-grotesk';
 
 interface Props {
 	title: string;
@@ -74,11 +75,11 @@ const { title, description, social_card_url } = Astro.props;
 								Help shape AX practices
 							</a>
 						</li>
-            <li>
-              <a href="https://github.com/agentexperience/agentexperience.ax" class="text-text-dark hover:text-primary-dark transition-colors text-sm">
+						<li>
+							<a href="https://github.com/agentexperience/agentexperience.ax" class="text-text-dark hover:text-primary-dark transition-colors text-sm">
 								Improve agentexperience.ax
 							</a>
-            </li>
+						</li>
 					</ul>
 				</div>
 				<div>
@@ -87,3 +88,4 @@ const { title, description, social_card_url } = Astro.props;
 			</div>
 		</footer>
 	</body>
+</html>
