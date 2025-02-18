@@ -4,7 +4,6 @@ description: "Mathias Biilmann, Netlify CEO, coins the term AX and shares core c
 pubDate: 2025-01-28
 author: "Mathias Biilmann"
 category: "articles"
-category_order: 1
 external_link: "https://biilmann.blog/articles/introducing-ax/"
 category_icon: "/articles/matt-biilmann.jpg"
 ---

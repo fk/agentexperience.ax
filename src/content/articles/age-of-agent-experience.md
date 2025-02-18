@@ -4,7 +4,6 @@ description: "It’s time to start building for a new persona: the autonomous ag
 pubDate: 2025-02-07
 author: "Julianna Lamb"
 category: "articles"
-category_order: 1
 external_link: "https://stytch.com/blog/the-age-of-agent-experience/"
 category_icon: "/articles/stytch-favicon.png"
 ---

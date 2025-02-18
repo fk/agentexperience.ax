@@ -4,7 +4,6 @@ description: "Agent-compatible collaborative apps will have a huge competitive a
 pubDate: 2025-01-30
 author: "Steven Fabre"
 category: "articles"
-category_order: 2
 external_link: "https://liveblocks.io/blog/great-agent-experience-great-collaboration"
 category_icon: "/articles/liveblocksfavicon.png"
 ---

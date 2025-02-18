@@ -4,7 +4,6 @@ description: "With the rise of AI agents, APIs have become bottlenecks for auton
 pubDate: 2024-10-08
 author: "Zdenek 'Z' Nemec"
 category: "articles"
-category_order: 2
 external_link: "https://nordicapis.com/sessions/apis-for-ai-have-we-failed/"
 category_icon: "/articles/nordicapis.png"
 ---
