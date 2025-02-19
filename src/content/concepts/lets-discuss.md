@@ -17,10 +17,10 @@ We host the discussions on [Github](https://github.com/orgs/agentexperience/disc
 
 ### Industry articles and research
 
-If there are articles related to AX that would be useful to share with the community of AX builders, create an issue or commit a change to the site via the open source [Github](https://github.com/agentexperience/agentexperience.ax/) repository. If you're doing explorations or have gathered useful data in the areas of AX or agent-to-platform interactions, we would love to see and share your learnings broadly with the community. Just like articles, submit the research article via an issue, discussion topic, or change request on the site.
+If there are articles related to AX that would be useful to share with the community of AX builders, create an issue or commit a change to the site via the open source [Github](https://github.com/agentexperience/ax/) repository. If you're doing explorations or have gathered useful data in the areas of AX or agent-to-platform interactions, we would love to see and share your learnings broadly with the community. Just like articles, submit the research article via an issue, discussion topic, or change request on the site.
 
 
 ### Submit a change to the site
 
-The code for this site is fully open on [Github](https://github.com/agentexperience/agentexperience.ax/). There's always _something_ to improve on the website. If there's an opportunity to report an issue or contribute a fix, you're invited to join the fun.
+The code for this site is fully open on [Github](https://github.com/agentexperience/ax/). There's always _something_ to improve on the website. If there's an opportunity to report an issue or contribute a fix, you're invited to join the fun.
 
