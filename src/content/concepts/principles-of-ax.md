@@ -8,16 +8,16 @@ category_order: 1.02
 ---
 
 
-The following AX principles are defined as the starting place to understand how to think about and improve AX. These principles may change as the industry learns more about the needs of agents and the best ways to support them through digital services.
+The following AX principles are the starting point for understanding how to think about and improve AX. These principles may change as the industry learns more about the needs of agents and the best ways to support them through digital services.
 
 
 ### Human Centricity
 
-Agents are delegates of humans to consume or interact with digital services on their behalf. On the other end of the agent or chain of agents, is the customer and end user - they never stop being the focus. Designing for agent experience is anchored on designing for human needs and working through agents as the medium to achieve these needs. As such, establish and maintain user centered design principles to identify and build optimal user experiences for the mediums your end users consume and interact with your offering. **Agents are a first-class medium for end users to consume and interact with digital services - next to browsers, mobile apps, etc.**
+Agents are delegates of humans to consume or interact with digital services on their behalf. On the other end of the agent or chain of agents, are the customer and end-user - they never stop being the focus. Designing for agent experience is anchored on designing for human needs and working through agents as the medium to achieve these needs. As such, establish and maintain user-centered design principles to identify and build optimal user experiences for the mediums your end users consume and interact with your offering. **Agents are a first-class medium for end users to consume and interact with digital services - next to browsers, mobile apps, etc.**
 
 ### Agent Accessibility
 
-The practice of ensuring agents have no barriers that prevent access or interaction with a digital service. Accessibility for agents will involve many different techniques that help orientation, navigation, content understanding, service discovery, service interaction, and consumption a content.
+The practice of ensuring agents have no barriers that prevent access or interaction with a digital service. Accessibility for agents will involve many different techniques that help orientation, navigation, content understanding, service discovery, service interaction, and consumption of content.
 
 With agents as a first-class medium for delegated end-user interaction, we can not assume that interactivity and engagement means a human directly using a web browser, app, etc. **Requiring a human to be involved in order for a human to achieve a goal is an anti-pattern where not absolutely required.** The areas where the service might require it will depend on the sensitivity of the interaction where authorization must be verifiably permitted by the end user before continuing. Even then, this authorization should allow continuation by the agent after the fact.
 
