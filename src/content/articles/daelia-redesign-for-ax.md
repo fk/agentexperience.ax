@@ -5,7 +5,7 @@ pubDate: 2025-02-03
 author: "Nathan Daeila"
 category: "articles"
 external_link: "https://www.daeila.com/blog/post-6/"
-category_icon: "/articles/daelia.png"
+category_icon: "/articles/daeila.png"
 ---
 
 
