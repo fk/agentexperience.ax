@@ -3,6 +3,7 @@ title: "Navigating the Future: AX, the Agent Web, and Its Interface"
 description: "In order for website and agents to coexist within a mutually beneficial web, we have to provide a different view of the web with optimal AX and UX without the negative impacts on websites today."
 pubDate: 2025-02-05
 author: "Sean Roberts"
+authorTitle: "Head of AX Architecture, Netlify"
 category: "research"
 category_order: 1
 sidebar_label: "Agent Web and Its Interface"
@@ -17,7 +18,7 @@ The current form of the web is built to support a user experience with the inten
 
 The web as we know it, experienced through web browser systems, was built for direct human consumption. In the future, we will have to have a web that is focused on supporting direct agent consumption. The two will live alongside one another as a purpose-built mirrors of each other. It will not be a bifurcated, separate web but will certainly be a separate “view” of the web with different interfaces for its consumption.
 
-By “agents” I am referring to the systems that are powering the future of accessing and engaging with websites and services in the age of AI, natural language interactions, agentic workflows working on behalf of humans, generative experiences, etc. What we see with Claude.ai, ChatGPT, Bolt.new, Cursor, etc. today, there will be more varied, powerful, diverse, niche, and purpose-built tools for consuming this content. Up until now, the primary systems developers built for on the web were browsers, the few search engines, and email clients. Now there will be countless agents of many types that will benefit from access to the web in a way that is easier to consume and this is a great thing for the open web.
+By “agents” I am referring to the systems that are powering the future of accessing and engaging with websites and services in the age of AI, natural language interactions, agentic workflows working on behalf of humans, generative experiences, etc. What we see with Claude.ai, ChatGPT, Bolt.new, Cursor, etc. today, there will be more varied, powerful, diverse, niche, and purpose-built tools for consuming this content. Up until now, the accent systems developers built for on the web were browsers, the few search engines, and email clients. Now there will be countless agents of many types that will benefit from access to the web in a way that is easier to consume and this is a great thing for the open web.
 
 The web for humans is visual, engaging, and focused on cues that are relevant for humans to consume directly. It cares about human accessibility, readability, engagement, etc. Websites attempt to maximize those concerns as doing so maximizes the ability to provide/capture value to/from our audiences in a way that aligns with our goals. This web is the point of contact with humans directly.
 
@@ -33,7 +34,7 @@ The intentional approach of having a great experience for humans on the web is a
 
 By using the human/browser focused web, agents are causing many challenges for themselves and others.
 
-![Status quo of agent consumption on the web](/articles/agent-web/statusquo.png)
+![Status quo of agent consumption on the web](../images/agent-web/statusquo.png)
 
 - Websites pay a cost for every resource requested and byte that’s transferred. By using the human web, these agents are driving up costs for resources that it will not benefit from. E.g. if a page has 15 resources that make up the human experience, 1 maybe 2 of those resources are usually useful to the agent doing its job. But the website owner will be paying for all 15 to be delivered. At scale, this adds up to cost site owners a lot of money and wastes resources for all parties involved.
 - Websites that have not created experiences, documentation, etc. that are optimal for agent consumption, they will not exist or are doomed to provide a subpar experience through this agent medium. This is where AX comes in and where optimizing for AX is working to deliver an agent web view of the sites and services offered.
@@ -74,7 +75,7 @@ However, with natural language processing (NLP) and LLMs, we can now satisfy que
 
 So what might this look like? We don’t know yet but I have some ideas. Ultimately, I believe we must lean on established patterns to offer a web compatible approach.
 
-![A view of an optimal agent interaction and good AX](/articles/agent-web/optimal-ax.png)
+![A view of an optimal agent interaction and good AX](../images/agent-web/optimal-ax.png)
 
 
 ### Progressive enhancements via content negotiation
@@ -102,6 +103,8 @@ For example, you could imagine that an agent helping to book a hotel could ask a
 ### Delegated interactivity models
 
 The web has long been challenged by the on-demand nature of serving content and updates to sites - meaning you have to actually visit the site and continue doing so to get the latest information. Websockets and server-sent events helped with this but the long standing connectivity is a burden on both client and server. One of the more viable approaches to mitigating this challenge on the web came up in the world of progressive web apps (PWA). This architecture pattern leverages a file called a service worker that registers events and can be ran in isolation of the website itself allowing any client to run the JavaScript to perform the actions including prefeching, background syncing data, verifying latest information, etc. Taking a page from this architecture pattern, we can imagine how we can solve the problems of offline syncing of context, event driven actions that allow the web app to provide additional context, tool definitions, etc., and a more direct hook into dynamic user flows that they can ensure are compatible with their APIs.
+
+---
 
 # New problems to solve
 
