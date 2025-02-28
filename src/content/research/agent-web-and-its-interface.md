@@ -34,7 +34,7 @@ The intentional approach of having a great experience for humans on the web is a
 
 By using the human/browser focused web, agents are causing many challenges for themselves and others.
 
-![Status quo of agent consumption on the web](../images/agent-web/statusquo.png)
+![Status quo of agent consumption on the web](/articles/agent-web/statusquo.png)
 
 - Websites pay a cost for every resource requested and byte that’s transferred. By using the human web, these agents are driving up costs for resources that it will not benefit from. E.g. if a page has 15 resources that make up the human experience, 1 maybe 2 of those resources are usually useful to the agent doing its job. But the website owner will be paying for all 15 to be delivered. At scale, this adds up to cost site owners a lot of money and wastes resources for all parties involved.
 - Websites that have not created experiences, documentation, etc. that are optimal for agent consumption, they will not exist or are doomed to provide a subpar experience through this agent medium. This is where AX comes in and where optimizing for AX is working to deliver an agent web view of the sites and services offered.
@@ -75,7 +75,7 @@ However, with natural language processing (NLP) and LLMs, we can now satisfy que
 
 So what might this look like? We don’t know yet but I have some ideas. Ultimately, I believe we must lean on established patterns to offer a web compatible approach.
 
-![A view of an optimal agent interaction and good AX](../images/agent-web/optimal-ax.png)
+![A view of an optimal agent interaction and good AX](/articles/agent-web/optimal-ax.png)
 
 
 ### Progressive enhancements via content negotiation
