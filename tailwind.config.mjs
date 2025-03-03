@@ -9,7 +9,7 @@ export default {
         accent: '#e93d82',
         'accent-dark': '#cb1d63',
         'text-dark': '#2036A1',
-        'text-muted': '#646fbc'
+        'text-muted': '#5f6aba'
       },
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
@@ -21,7 +21,7 @@ export default {
     require('@tailwindcss/typography'),
     function ({ addBase, theme }) {
       addBase({
-        'html': {color: theme('colors.text-dark'), background: "#fffbff"},
+        'html': {color: theme('colors.text-dark'), background: "#fff6fe"},
         'h1, h2, h3, h4': { fontFamily: theme('fontFamily.grotesk')},
       });
     },
