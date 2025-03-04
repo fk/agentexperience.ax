@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        page: '#fff6fe',
         accent: '#e93d82',
         'accent-dark': '#cb1d63',
         'text-dark': '#2036A1',
@@ -21,7 +22,7 @@ export default {
     require('@tailwindcss/typography'),
     function ({ addBase, theme }) {
       addBase({
-        'html': {color: theme('colors.text-dark'), background: "#fff6fe"},
+        'html': {color: theme('colors.text-dark'), background: theme('colors.page')},
         'h1, h2, h3, h4': { fontFamily: theme('fontFamily.grotesk')},
       });
     },
