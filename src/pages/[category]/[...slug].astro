@@ -123,7 +123,7 @@ categoryPosts.sort((a, b) => {
                 {""}
                 <span class="text-text-muted">
                   {new Intl.DateTimeFormat('en-US', {
-                    timeZone: 'America/New_York',
+                    timeZone: 'UTC',//utc
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -172,6 +172,10 @@ categoryPosts.sort((a, b) => {
 
   .prose figure {
     @apply flex flex-col items-center xl:-mx-36;
+  }
+
+  .prose h3 img {
+    margin-bottom: 0.5rem;
   }
 
   select:not([size]) {
