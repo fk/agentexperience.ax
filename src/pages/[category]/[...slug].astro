@@ -108,19 +108,26 @@ categoryPosts.sort((a, b) => {
               <div class="mb-8 pb-4 md:text-lg">
                 <span class="font-semibold">{post.data.author}</span>
                 {post.data.authorTitle && (
-                  <span class="ml-2">{post.data.authorTitle}</span>
-                )}{" "}
+                  <>
+                    {" "}
+                    <LogoMark
+                      size="8"
+                  className="inline-block mx-1 relative -top-[1px] text-text-muted"
+                /><span class="ml-2">{post.data.authorTitle}</span>
+                  </>
+                )}
                 <LogoMark
                   size="8"
                   className="inline-block mx-1 relative -top-[1px] text-text-muted"
                 />{" "}
                 {""}
                 <span class="text-text-muted">
-                  {new Date(post.data.pubDate).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
+                  {new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'America/New_York',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  }).format(post.data.pubDate)}
                 </span>
               </div>
             )
