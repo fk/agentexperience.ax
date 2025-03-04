@@ -50,7 +50,7 @@ posts.sort((a, b) => {
             href={post.data.external_link || `/${category}/${post.slug}`}
             target={post.data.external_link ? "_blank" : undefined}
             rel={post.data.external_link ? "noopener noreferrer" : undefined}
-            class="flex flex-col p-6 lg:p-8 bg-white/35 hover:bg-white rounded-sm border border-accent/10 hover:-translate-y-px shadow-sm shadow-accent/10 hover:shadow-md hover:shadow-accent/10 transition-all h-full group"
+            class="relative flex flex-col p-6 lg:p-8 bg-white/35 hover:bg-white rounded-sm border border-accent/10 hover:-translate-y-px shadow-sm shadow-accent/10 hover:shadow-md hover:shadow-accent/10 transition-all h-full group"
           >
             <div class="flex-1">
               <div class="flex items-start gap-3 mb-2">
@@ -62,16 +62,7 @@ posts.sort((a, b) => {
                   />
                 )}
                 <h2 class="text-xl font-semibold font-grotesk text-text-dark text-balance">
-                  {post.data.title}{" "}
-                  <Icon
-                    name={
-                      post.data.external_link
-                        ? "lucide:external-link"
-                        : "lucide:chevron-right"
-                    }
-                    size="0.75em"
-                    class="inline-flex opacity-30 relative -top-[0.05em] group-hover:opacity-100 transition-all"
-                  />
+                  {post.data.title}
                 </h2>
               </div>
               <p class="my-4 mr-16 text-text-muted leading-relaxed group-hover:text-text-dark">
@@ -84,8 +75,8 @@ posts.sort((a, b) => {
                 <div class="text-text-muted">
                   By {post.data.author}
                   <LogoMark
-                    size="8"
-                    className="inline-block mx-1 relative -top-[1px] text-text-muted/50"
+                    size="6"
+                    className="inline-block mx-1 relative -top-[1px] text-text-muted/25"
                   />{" "}
                   {new Date(post.data.pubDate).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -94,6 +85,13 @@ posts.sort((a, b) => {
                   })}
                 </div>
               </div>
+            )}
+            {post.data.external_link && (
+              <Icon
+                name="lucide:external-link"
+                size="1em"
+                class="absolute opacity-0 bottom-7 right-6 lg:bottom-9 lg:right-8 text-muted/25 group-hover:opacity-25 transition-all"
+              />
             )}
           </a>
         ))
