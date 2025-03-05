@@ -16,15 +16,17 @@ AX, or Agent Experience, refers to the design and optimization of digital enviro
 
 Just as **User Experience (UX)** focuses on human interactions with a product and **Developer Experience (DX)** optimizes the experience of building on a platform, AX is about ensuring that AI agents can seamlessly interact with and extend digital products. This includes providing well-structured APIs, machine-readable documentation, and clear operational contexts for AI systems.
 
-## How AX differs from UX and DX
+## How AX relates to UX and DX
 
-While UX and DX have been crucial to digital evolution, AX introduces a new paradigm. Here’s how they compare:
+Given that agents are delegated by users to do tasks, they are now under the umbrella of considerations for UX and DX. They are different areas of focus but come together to form the complete picture of the user experience.
 
-- **UX (User Experience):** Optimizes interactions between humans and digital products, ensuring usability, accessibility, and satisfaction.
+- **UX (User Experience):** Optimizes interactions between humans and digital products, ensuring usability, accessibility, and satisfaction - the total view of the user's experience.
 - **DX (Developer Experience):** Focuses on making development tools intuitive and efficient, reducing friction for software engineers.
-- **AX (Agent Experience):** Ensures that AI agents can autonomously navigate, interpret, and utilize platforms effectively to serve human users.
+- **AX (Agent Experience):** Ensures that delegated AI agents can successfully navigate, interpret, and utilize digital services to effectively serve users.
 
-Unlike UX and DX, which are inherently human-centric, AX is about making products *agent-friendly*. This means designing with AI in mind, ensuring that platforms can be accessed, interpreted, and leveraged by intelligent systems to improve human productivity.
+Whether they are users, customers, or developers, they are interacting with these digital services and products via delegated agents. AX is about making products *agent-friendly* and ensuring that this medium is supported. Therefore, AX is a natural extension of UX and DX where services support users that are interacting with them via agents.
+
+_Related [research on AX being an evolution in UX](/research/ax-the-next-evolution-in-ux/)._
 
 ## Why AX matters in the era of AI agents
 
